@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-web-crawler",
+  "version": "0.1.0",
+  "description": "This is simple Node.js web crawler.",
+  "main": "index.js",
+  "scripts": {
+    "offline": "serverless offline --reloadHandler",
+    "deploy:dev": "rm -Rf .build && serverless deploy",
+    "remove-app": "serverless remove",
+    "deploy:prod": "rm -Rf .build && serverless deploy --stage production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.138",
+    "@types/node": "^20.12.12",
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.6.0",
+    "serverless-webpack": "^5.14.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0"
+  }
+}
