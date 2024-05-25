@@ -15,6 +15,7 @@ interface Link {
 }
 
 export const webCrawler = async (event: APIGatewayEvent, context: Context) => {
+  const start_time = Date.now();
   const headers: OutgoingHttpHeaders = {
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Origin': '*', // Required for CORS support to work
@@ -29,6 +30,7 @@ export const webCrawler = async (event: APIGatewayEvent, context: Context) => {
     throw new Error('Missing url');
   }
   const { data } = await axios.get(url);
+  const fetching_time = Date.now() - start_time;
 
   const $ = cheerio.load(data);
   const paragraphs = $('p');
@@ -62,6 +64,7 @@ export const webCrawler = async (event: APIGatewayEvent, context: Context) => {
   let response: LambdaResponse;
 
   try {
+    const total_execution = Date.now() - start_time;
     response = {
       statusCode: 200,
       headers,
@@ -70,6 +73,10 @@ export const webCrawler = async (event: APIGatewayEvent, context: Context) => {
         links: links_list,
         raw_content,
         paragraphs: paragraphs_list,
+        stats: {
+          total_execution,
+          fetching_time,
+        }
       })
     };
     return response;
