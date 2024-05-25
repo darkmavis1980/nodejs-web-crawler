@@ -1,6 +1,6 @@
 {
   "name": "nodejs-web-crawler",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "This is simple Node.js web crawler.",
   "main": "index.js",
   "scripts": {
