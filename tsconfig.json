@@ -4,10 +4,11 @@
     "strictNullChecks": true,
     "sourceMap": true,
     "allowJs": true,
-    "target": "es2021",
+    "module": "CommonJS",
+    "target": "ES2022",
     "outDir": ".build",
     "moduleResolution": "node",
-    "lib": ["es2021"],
+    "lib": ["ES2022"],
     "rootDir": "./"
   }
 }

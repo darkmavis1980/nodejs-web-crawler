@@ -7,7 +7,8 @@
     "offline": "serverless offline --reloadHandler",
     "deploy:dev": "rm -Rf .build && serverless deploy",
     "remove-app": "serverless remove",
-    "deploy:prod": "rm -Rf .build && serverless deploy --stage production"
+    "deploy:prod": "rm -Rf .build && serverless deploy --stage production",
+    "benchmark": "tsc --project tsconfig.json && node .build/bench.js"
   },
   "keywords": [],
   "author": "",
@@ -19,10 +20,12 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.138",
     "@types/node": "^20.12.12",
+    "dotenv": "^16.4.5",
     "serverless": "^3.38.0",
     "serverless-offline": "^13.6.0",
     "serverless-webpack": "^5.14.0",
     "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0"
   }
