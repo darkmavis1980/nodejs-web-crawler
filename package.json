@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "offline": "serverless offline --reloadHandler",
-    "deploy:dev": "rm -Rf .build && serverless deploy",
+    "deploy": "rm -Rf .build && serverless deploy",
     "remove-app": "serverless remove",
     "deploy:prod": "rm -Rf .build && serverless deploy --stage production",
+    "remove-app:prod": "serverless remove --stage production",
     "benchmark": "tsc --project tsconfig.json && node .build/bench.js"
   },
   "keywords": [],
